@@ -1,0 +1,15 @@
+import canonicalLaneMathlib.AdmissibleClass
+import GrowthBoundednessSolutionsOrdinaryDifferentialCanonicalLaneLean.BridgeLemmas
+import GrowthBoundednessSolutionsOrdinaryDifferentialCanonicalLaneLean.GateLemmas
+
+namespace HautevilleHouse
+namespace GrowthBoundednessSolutionsOrdinaryDifferentialCanonicalLaneLean
+
+def ConstrainedGrowthBoundednessClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_growth_boundedness_endgame (A : AdmissibleClass) : ConstrainedGrowthBoundednessClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end GrowthBoundednessSolutionsOrdinaryDifferentialCanonicalLaneLean
+end HautevilleHouse
